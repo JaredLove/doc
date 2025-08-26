@@ -6,8 +6,6 @@ Instructor: Dr. Rafael Azuaje
 College: San Antonio College or other from Alamo Colleges District
 
 *******************************************************************************/
-    // Import the Arrays class
-import java.util.Arrays;
 
 public class CardDeckApp {
 
@@ -20,7 +18,7 @@ public class CardDeckApp {
         shuffleDeck(deck);
         displayCards(deck);
 
-        int count = 10;
+        int count = 2;
         System.out.println("HAND OF " + count + " CARDS");
         String[] hand = dealCards(deck, count);
         displayCards(hand);
@@ -48,20 +46,26 @@ public class CardDeckApp {
 
     private static void displayCards(String[] cards) {
         // add code that displays cards here
-            //printing the deck of cards using he toString() method from the Arrays Class.
-        System.out.println(Arrays.toString(cards));
+            //using the join method for joining strings with a delimiter / pipe character
+        String result = String.join(" | ", cards);
+        System.out.println(result);
     }
 
     private static void shuffleDeck(String[] deck) {
         // add code that shuffles the deck here
         for(int i = 0; i < 20; i++){
+                // Two random numbers to use for swapping
             int randomIndex1 = (int) (Math.random() * deck.length-1);
             int randomIndex2 = (int) (Math.random() * deck.length-1);
+                //set the variable copy equal the the value of that index of the deck array
             String copy = deck[randomIndex1];
+                //checking for dupes
             if(randomIndex1 == randomIndex2){
                 System.out.println("dupe");
             }else{
+                    // setting the value of the first random index equal to the second
                 deck[randomIndex1] = deck[randomIndex2];
+                    // setting the second random index equal to the copy we made of the first
                 deck[randomIndex2] = copy;
             }
         }
@@ -69,9 +73,9 @@ public class CardDeckApp {
 
     private static String[] dealCards(String[] deck, int count) {
         String[] hand = new String[count];
+            // for loop to deal cards to playing depending on the count that was set
         for(int i = 0; i < count; i++){
-            int randomIndex = (int) (Math.random() * deck.length-1);
-            hand[i] = deck[randomIndex];
+            hand[i] = deck[i];
         }
         return hand;
     }
