@@ -16,14 +16,14 @@ public class CardDeckApp {
         String[] deck = getDeck();
         displayCards(deck);
 
-        // System.out.println("SHUFFLED DECK");
-        // shuffleDeck(deck);
-        // displayCards(deck);
+        System.out.println("SHUFFLED DECK");
+        shuffleDeck(deck);
+        displayCards(deck);
 
-        // int count = 2;
-        // System.out.println("HAND OF " + count + " CARDS");
-        // String[] hand = dealCards(deck, count);
-        // displayCards(hand);
+        int count = 10;
+        System.out.println("HAND OF " + count + " CARDS");
+        String[] hand = dealCards(deck, count);
+        displayCards(hand);
     }
 
     private static String[] getDeck() {
@@ -48,18 +48,31 @@ public class CardDeckApp {
 
     private static void displayCards(String[] cards) {
         // add code that displays cards here
-            //printing the deck of cards using he toString() method fro mthe Arrays Class.
+            //printing the deck of cards using he toString() method from the Arrays Class.
         System.out.println(Arrays.toString(cards));
     }
 
     private static void shuffleDeck(String[] deck) {
-        int randomIndex = (int) (Math.random() * deck.length-1);
-        
         // add code that shuffles the deck here
+        for(int i = 0; i < 20; i++){
+            int randomIndex1 = (int) (Math.random() * deck.length-1);
+            int randomIndex2 = (int) (Math.random() * deck.length-1);
+            String copy = deck[randomIndex1];
+            if(randomIndex1 == randomIndex2){
+                System.out.println("dupe");
+            }else{
+                deck[randomIndex1] = deck[randomIndex2];
+                deck[randomIndex2] = copy;
+            }
+        }
     }
 
     private static String[] dealCards(String[] deck, int count) {
         String[] hand = new String[count];
+        for(int i = 0; i < count; i++){
+            int randomIndex = (int) (Math.random() * deck.length-1);
+            hand[i] = deck[randomIndex];
+        }
         return hand;
     }
 }
