@@ -6,15 +6,15 @@ Instructor: Dr. Rafael Azuaje
 College: San Antonio College or other from Alamo Colleges District
 
 *******************************************************************************/
+    // Import the Arrays class
+import java.util.Arrays;
 
-import java.util.Arrays; // Import the Arrays class
 public class CardDeckApp {
 
     public static void main(String[] args) {
         System.out.println("DECK");
         String[] deck = getDeck();
-        System.out.println(Arrays.toString(deck));
-        // displayCards(deck);
+        displayCards(deck);
 
         // System.out.println("SHUFFLED DECK");
         // shuffleDeck(deck);
@@ -48,6 +48,8 @@ public class CardDeckApp {
 
     private static void displayCards(String[] cards) {
         // add code that displays cards here
+            //printing the deck of cards using he toString() method fro mthe Arrays Class.
+        System.out.println(Arrays.toString(cards));
     }
 
     private static void shuffleDeck(String[] deck) {
